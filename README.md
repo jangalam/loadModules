@@ -3,7 +3,7 @@
 It is also in [Chinese](./自述.md).
 
 ## Introduction
-*loadModules*  combines module loading and execution in one function call. The method serves for the standard ECMAScript modules and it is developed for the browser environment at this stage. `loadModules` at the present version supports module imported as the pure functions. Neither importing a module for its side effect (affecting global context) or dynamic imports is covered.
+*loadModules*  combines module loading and execution in one function call. The method serves for the standard ECMAScript modules and it is developed for the browser environment at this stage. `loadModules` at the present version supports importing modules as the pure functions. Neither importing a module for its side effect (affecting global context) or dynamic imports is covered.
 
 ##  Use 
 The function loadModules combines  javascript modules and the execution codes into  one unified runner script to HTML body section.  loadModules handles all the modules in triforms through the interface: `loadModules(generalImports, rscList, runnerPath)`. Notice that unlike webpack's bundling several modules into one for I/O optimization, loadModules conforms to an explicit delaration of ECMAScript's asynchronous module importing for flexible deloyment. Users or contributors can welcome to go [in-depth](./in-depth.md). See the source code [moduleAccess.js](./src/moduleAccess.js).
