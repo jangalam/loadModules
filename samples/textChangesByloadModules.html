@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><head>
+		<meta charset="utf-8">
+			<title>Use Cases of "Sequenceless" loadModules</title>
+			<meta name="author" content="Hui Cheng" />
+			<meta name="description" content="use sample of loadModules function" />
+			<meta name="keywords" content="sequenceless,ECMAScript module loader" />
+			<style type="text/css" media="screen">
+				html, body {
+				height: 100%;
+				}
+
+				html {
+				margin:auto;
+				}
+
+
+
+				body {
+				display: flex;
+				flex-flow:column; 
+				align-items:center;
+				justify-content: space-evenly;
+				}
+
+				#controls {
+				display:flow-root;
+				}
+				#output {
+
+				}
+
+			</style>
+
+			<script src="./lib/moduleAccess.min.js"></script>
+			<script>
+				//security.fileuri.strict_origin_policy set false for firefox
+				//simulating to load cloud functions (js module) passed as rscList in the second argument to loadModules function
+				const sharedStatements = "import {upperCase} from './upperCase.js';"; 
+				const modName1 = 'shout';
+				const modPath1 = './shout.js';
+				const modName2 = 'amplified';
+				const modPath2 = './amplified.js';
+				const modRunnerPath = './modrunner.js';
+				loadModules(sharedStatements,[{location:modPath1,externalName:modName1},{location:modPath2,externalName:modName2}],modRunnerPath);
+
+			</script>
+		</head>
+		<body><div id="output"><b>12345</b></div><br />
+			<div id="control">
+				<button>myText</button>
+				<button>shout.textColorizer()</button>
+				<button>amplified.repeat()</button>
+				<button>upperCase()</button>
+			</div>
+		</body>
+	</html>
